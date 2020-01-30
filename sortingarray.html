@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Test Sorting</h2>
+
+    <p>Klik Untuk mengurutkan</p>
+
+    <button onclick="myFunction()">Click</button>
+
+    <p id="test"></p>
+    <p id="sebelum"></p>
+    <p id="sesudah"></p>
+
+    <script>
+
+
+
+        var sortingArray = [5, 13, 2, 10];
+        document.getElementById("test").innerHTML = sortingArray;
+
+        function myFunction() {
+            sortingArray.sort(function (a, b) { return a - b });
+            document.getElementById("test").innerHTML = sortingArray;
+        }
+
+        // batas 
+
+        var Numbers = [];
+        for (i = 0; i < 10; i++) {
+            Numbers.push((parseInt((Math.random() * (100 - 0) + 0))));
+        }
+        console.log(Numbers);
+
+        var lines = "";
+        for (i = 0; i < Numbers.length; i++) {
+            lines += Numbers[i] + ",";
+        }
+        document.getElementById("sebelum").innerHTML = "Sebelum Sorting:" + "<br>" + lines;
+
+        var tmp = [];
+        for (i = 0; i < Numbers.length; i++) {
+
+            for (j = 0; j < Numbers.length; j++) {
+
+                if (Numbers[j] > Numbers[j + 1]) {
+                    tmp = Numbers[j];
+                    Numbers[j] = Numbers[j + 1];
+                    Numbers[j + 1] = tmp;
+                }
+            }
+        }
+        var lines = "";
+        for (i = 0; i < Numbers.length; i++) {
+            lines += Numbers[i] + ",";
+        }
+        document.getElementById("sesudah").innerHTML = "Setelah Di Sorting" + "<br>" + lines;
+
+        console.log("After Sorting:");
+        console.log(Numbers);
+        
+        // var test = [5, 13, 2, 10];
+        // var jumlah = test.sort((a, b) => a > b ? 1 : -1);
+
+        // function perbandingan(a, b) {
+        //     return a - b;
+        // }
+        // if (a - b === false) {
+        //     console.log("Hasil" + perbandingan)
+        // }
+
+
+        // console.log(jumlah);
+
+
+    // var sortingArray = new Array('5', '13', '2', '10');
+
+    // document.write("Array awal : " + jumlah + "<br>");
+
+    // jumlah.sort();
+    // document.write("Diurutkan dengan sort() : " + jumlah + "<br>");
+
+    // function perbandingan(a, b) {
+    // return a - b;
+    // }
+
+    // jumlah.sort(perbandingan);
+    // document.write("Diurutkan perbandingan : " + jumlah + "<br>");
+
+    </script>
+</body>
+
+</html>
